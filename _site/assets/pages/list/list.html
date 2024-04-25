@@ -1,0 +1,205 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="/ScholarSearch/assets/img/icon.png">
+    <title>List</title>
+    <style>
+        body {
+            background-color: #daeaf6;
+            color: black;
+            font-family: 'Verdana', sans-serif;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            padding: 10px;
+            align-items: center;
+        }
+
+        .logo {
+            width: 200px;
+            height: auto;
+        }
+        
+        .links {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+        
+        .link {
+            padding-left: 25px;
+            padding-right: 25px;
+            text-align: center;
+            width: 275px;
+        }
+        
+        .text {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 50px;
+            padding-right: 50px;
+            text-decoration: none;
+            color: black;
+            border-radius: 10px;
+            background-color: #fcf4dd;
+        }
+        
+        .text:hover {
+            background-color: #ddd;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 0px;
+            font-size: 70%;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/ScholarSearch/">
+            <img src="/ScholarSearch/assets/img/logo.png" alt="Logo" class="logo">
+        </a>
+        <ul class="links">
+            <li class="link"><a href="/ScholarSearch/assets/pages/list/list.html" class="text">My List</a></li>
+            <li class="link"><a href="/ScholarSearch/assets/pages/search/search.html" class="text">Search</a></li>
+            <li class="link"><a href="/ScholarSearch/assets/pages/match/match.html" class="text">Find Match</a></li>
+            <li class="link"><a href="/ScholarSearch/assets/pages/profile/profile.html" class="text">Profile</a></li>
+        </ul>
+    </header>
+
+    <div id="main-content">
+        <html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ScholarSearch</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        .selected {
+            background-color: yellow;
+        }
+        .delete-button {
+            margin-left: 10px; /* Adjust as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="trifold">
+        <div class="column">
+            <h2><b>Safety Schools</b></h2>
+            <ul id="safety" class="category"></ul>
+        </div>
+        <div class="column">
+            <h2><b>Match Schools</b></h2>
+            <ul id="match" class="category"></ul>
+        </div>
+        <div class="column">
+            <h2><b>Reach Schools</b></h2>
+            <ul id="reach" class="category"></ul>
+        </div>
+    </div>
+    <footer>
+        <!-- Footer content goes here -->
+    </footer>
+    <div class="column">
+        <h2><b>Searched Colleges</b></h2>
+        <ul id="selected">
+            // selelected colleges
+            <script>
+                // Retrieve selected colleges from database
+                var selectedColleges = JSON.parse(localStorage.getItem('selectedSchools')) || [];
+                var selectedList = document.getElementById('selected');
+                // Display selected colleges
+                selectedColleges.forEach(function(college) {
+                    var listItem = document.createElement('li');
+                    listItem.textContent = college;
+                    listItem.onclick = function() {
+                        toggleSelect(this);
+                    };
+                    selectedList.appendChild(listItem);
+                });
+            </script>
+        </ul>
+        <div class="buttons">
+            <button onclick="moveTo('Safety')">Move to Safety</button>
+            <button onclick="moveTo('Match')">Move to Match</button>
+            <button onclick="moveTo('Reach')">Move to Reach</button>
+        </div>
+        <div class="buttons">
+            <button onclick="deleteSelected()">Delete</button>
+        </div>
+    </div>
+    <script>
+        var selectedSchools = []; // Array to store selected schools
+        // Function to move schools between categories
+        function moveTo(category) {
+            if (selectedSchools.length === 0) {
+                alert('Please select at least one school first.');
+                return;
+            }
+            var destinationList = document.getElementById(category.toLowerCase());
+            selectedSchools.forEach(function (school) {
+                var listItem = document.createElement("li");
+                listItem.textContent = school;
+                destinationList.appendChild(listItem);
+            });
+            selectedSchools = []; // Clear the selected schools array
+            // Clear the visual indication of selection
+            var selectedListItems = document.querySelectorAll("#selected li");
+            selectedListItems.forEach(function(item) {
+                item.classList.remove('selected');
+            });
+            // Clear the selected colleges list
+            document.getElementById("selected").innerHTML = "";
+        }
+        // Function to toggle selection of schools
+        function toggleSelect(school) {
+            if (selectedSchools.includes(school.textContent)) {
+                selectedSchools = selectedSchools.filter(item => item !== school.textContent);
+                school.classList.remove('selected');
+            } else {
+                selectedSchools.push(school.textContent);
+                school.classList.add('selected');
+            }
+        }
+        // Function to remove school from the list
+        function removeFromList(schoolElement) {
+            var schoolName = schoolElement.textContent;
+            var index = selectedSchools.indexOf(schoolName);
+            if (index !== -1) {
+                selectedSchools.splice(index, 1);
+            }
+            schoolElement.remove();
+        }
+        // Function to delete selected colleges
+        function deleteSelected() {
+            var selectedListItems = document.querySelectorAll("#selected li");
+            selectedListItems.forEach(function(item) {
+                if (item.classList.contains('selected')) {
+                    removeFromList(item);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
+    </div>
+
+    <footer>
+        <p>&nbsp;</p>
+    </footer>
+    </body>
+    </html>
+</body>
+</html>

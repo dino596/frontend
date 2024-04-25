@@ -1,0 +1,102 @@
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+}
+/* Search form */
+#searchForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+#searchInput {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#searchButton:hover {
+    background-color: #0056b3;
+}
+/* Search results */
+#searchResults {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+}
+.searchResult {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+.searchResult:last-child {
+    border-bottom: none;
+}
+.collegeButton {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    font-weight: bold;
+    outline: none;
+    margin: 0;
+    color: #007bff;
+}
+.searchResult p {
+    margin-top: 5px;
+    color: #666;
+}
+.flex-container {
+    display: flex;
+    align-items: left;
+    justify-content: space-between;
+}
+.button {
+    border-radius: 10px;
+    background-color: light gray;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #000;
+}
+/* Styles for the college box */
+.college-box {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.college-content {
+    position: relative; /* Make positioning relative to the college box */
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: red;
+}

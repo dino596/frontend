@@ -1,0 +1,113 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="/ScholarSearch/assets/img/icon.png">
+    <title>Find Match</title>
+    <style>
+        body {
+            background-color: #daeaf6;
+            color: black;
+            font-family: 'Verdana', sans-serif;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            padding: 10px;
+            align-items: center;
+        }
+
+        .logo {
+            width: 200px;
+            height: auto;
+        }
+        
+        .links {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+        
+        .link {
+            padding-left: 25px;
+            padding-right: 25px;
+            text-align: center;
+            width: 275px;
+        }
+        
+        .text {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 50px;
+            padding-right: 50px;
+            text-decoration: none;
+            color: black;
+            border-radius: 10px;
+            background-color: #fcf4dd;
+        }
+        
+        .text:hover {
+            background-color: #ddd;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 0px;
+            font-size: 70%;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/ScholarSearch/">
+            <img src="/ScholarSearch/assets/img/logo.png" alt="Logo" class="logo">
+        </a>
+        <ul class="links">
+            <li class="link"><a href="/ScholarSearch/assets/pages/list/list.html" class="text">My List</a></li>
+            <li class="link"><a href="/ScholarSearch/assets/pages/search/search.html" class="text">Search</a></li>
+            <li class="link"><a href="/ScholarSearch/assets/pages/match/match.html" class="text">Find Match</a></li>
+            <li class="link"><a href="/ScholarSearch/assets/pages/profile/profile.html" class="text">Profile</a></li>
+        </ul>
+    </header>
+
+    <div id="main-content">
+        <html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/ScholarSearch/assets/common/css/style.css" />
+    <link rel="stylesheet" href="/ScholarSearch/assets/pages/match/css/style.css" />
+</head>
+<body>
+<div id="container">
+  <h2 id="question">Question</h2>
+  <div id="options"></div>
+  <br />
+  <button id="nextButton" onclick="nextQuestion()">Next</button>
+  <button id="submitButton" onclick="submitAnswers()" style="display:none;">Submit</button>
+</div>
+<div id="recommendation-container" style="display:none;">
+  <h3>Recommendations:</h3>
+  <ul id="recommendation"></ul>
+</div>
+
+<script src="/ScholarSearch/assets/pages/match/js/script.js"></script>
+</body>
+</html>
+
+    </div>
+
+    <footer>
+        <p>&nbsp;</p>
+    </footer>
+    </body>
+    </html>
+</body>
+</html>
